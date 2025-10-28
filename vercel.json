@@ -1,6 +1,5 @@
-# 在项目根目录执行
-echo '{
+{
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
-}' > vercel.json
+}
