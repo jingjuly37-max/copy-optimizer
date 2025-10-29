@@ -6,13 +6,22 @@ export class APIProxy {
         platform: brandContext.platform 
       });
 
+      // 修复：添加缺失的 requestData 定义
+      const requestData = {
+        userInput: originalText,
+        brandPersona: brandContext.brandPersona,
+        contentGoal: brandContext.contentGoal,
+        platform: brandContext.platform,
+        brandName: brandContext.brandName
+      };
+
       const response = await fetch('/.netlify/functions/optimize', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(requestData)
-});
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData)
+      });
 
       console.log('📡 API响应状态:', response.status);
 
