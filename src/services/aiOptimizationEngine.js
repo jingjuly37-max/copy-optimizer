@@ -145,3 +145,5 @@ ${strategy.instructions}
 请直接返回优化后的文案，不要添加额外说明。
 `;
 }
+
+export default AIOptimizationEngine;
