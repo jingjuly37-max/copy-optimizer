@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CopyInput from './components/CopyInput'
 import ResultView from './components/ResultView'
-import { AIOptimizationEngine } from './services/aiOptimizationEngine.js';
+import AIOptimizationEngine from './services/aiOptimizationEngine.js';
 
 function App() {
   const [originalText, setOriginalText] = useState('')
