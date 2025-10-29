@@ -6,17 +6,13 @@ export class APIProxy {
         platform: brandContext.platform 
       });
 
-      const response = await fetch('/api/optimize', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          originalText,
-          brandContext,
-          strategy
-        })
-      });
+      const response = await fetch('/.netlify/functions/optimize', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(requestData)
+});
 
       console.log('📡 API响应状态:', response.status);
 
