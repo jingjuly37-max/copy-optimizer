@@ -1,4 +1,6 @@
-const { optimizeWithAI } = require('../../services/AiOptimizationEngine');
+// 改为默认导入
+const AIOptimizationEngine = require('../../src/services/aiOptimizationEngine');
+const { optimizeWithAI } = AIOptimizationEngine.default || AIOptimizationEngine;
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
