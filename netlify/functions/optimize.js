@@ -168,13 +168,12 @@ ${originalText}
 }
 
 async function callGLM4(prompt) {
-  const apiKey = process.env.GLM4_API_KEY
+  // 修改这一行：使用 ZHIPU_AI_API_KEY 而不是 GLM4_API_KEY
+  const apiKey = process.env.ZHIPU_AI_API_KEY
   
   if (!apiKey) {
-    throw new Error('GLM-4 API密钥未配置。请在Netlify环境变量中设置GLM4_API_KEY')
+    throw new Error('智谱AI API密钥未配置。请在Netlify环境变量中设置ZHIPU_AI_API_KEY')
   }
-
-  console.log('调用GLM-4 API，API Key前6位:', apiKey.substring(0, 6) + '...')
 
   try {
     const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
