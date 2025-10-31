@@ -1,9 +1,7 @@
-const fetch = require('node-fetch')
-
 exports.handler = async function (event, context) {
   // 添加调试信息
   console.log('=== optimize函数被调用 ===')
-  console.log('GLM4_API_KEY exists:', !!process.env.GLM4_API_KEY)
+  console.log('ZHIPU_AI_API_KEY exists:', !!process.env.ZHIPU_AI_API_KEY)
   
   // 处理CORS
   if (event.httpMethod === 'OPTIONS') {
@@ -168,7 +166,6 @@ ${originalText}
 }
 
 async function callGLM4(prompt) {
-  // 修改这一行：使用 ZHIPU_AI_API_KEY 而不是 GLM4_API_KEY
   const apiKey = process.env.ZHIPU_AI_API_KEY
   
   if (!apiKey) {
@@ -192,8 +189,7 @@ async function callGLM4(prompt) {
         ],
         temperature: 0.8,
         max_tokens: 4000
-      }),
-      timeout: 30000 // 30秒超时
+      })
     })
 
     if (!response.ok) {
